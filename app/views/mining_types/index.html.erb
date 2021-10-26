@@ -1,13 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<p><strong>Data: </strong> <%= data_br(Date.today)%></p>
-
 <h1>Mining Types</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Name</th>
+      <th>Description</th>
       <th>Acronym</th>
       <th colspan="3"></th>
     </tr>
@@ -16,7 +14,7 @@
   <tbody>
     <% @mining_types.each do |mining_type| %>
       <tr>
-        <td><%= mining_type.name %></td>
+        <td><%= mining_type.description %></td>
         <td><%= mining_type.acronym %></td>
         <td><%= link_to 'Show', mining_type %></td>
         <td><%= link_to 'Edit', edit_mining_type_path(mining_type) %></td>
