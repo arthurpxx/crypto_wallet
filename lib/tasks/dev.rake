@@ -19,7 +19,8 @@ namespace :dev do
       {
           description: "Bitcoin",
           acronym: "BTC",
-          url_image: "https://assets.chinatechnews.com/wp-content/uploads/bitcoin-logo.jpg"
+          url_image: "https://assets.chinatechnews.com/wp-content/uploads/bitcoin-logo.jpg",
+          mining_types: MiningType
       },
       {
           description: "Dogecoin",
@@ -60,7 +61,7 @@ task add_mining_types: :environment do
       },
       { description: "Proof of Capacity",
         acronym: "PoC"
-    }
+      }
 ]
 
     mining_types.each do |type|
