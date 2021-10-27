@@ -6,8 +6,8 @@ namespace :dev do
       show_spinner("Apagando Bando de Dados") {%x(rails db:drop)}
       show_spinner("Criando Bando de Dados") {%x(rails db:create)}
       show_spinner("Migrando Bando de Dados") {%x(rails db:migrate)}
-      %x(rails dev:add_coins)
       %x(rails dev:add_mining_types)
+      %x(rails dev:add_coins)
     else
       puts "você não esta em ambiente de desenvolvimento!"
     end
@@ -20,27 +20,31 @@ namespace :dev do
           description: "Bitcoin",
           acronym: "BTC",
           url_image: "https://assets.chinatechnews.com/wp-content/uploads/bitcoin-logo.jpg",
-          mining_types: MiningType
+          mining_type: MiningType.find_by(acronym: "PoW")
       },
       {
           description: "Dogecoin",
           acronym: "DOGE",
-          url_image: "https://png.pngtree.com/png-clipart/20210427/ourlarge/pngtree-dogecoin-on-a-transparent-background-png-image_3246813.jpg"
+          url_image: "https://png.pngtree.com/png-clipart/20210427/ourlarge/pngtree-dogecoin-on-a-transparent-background-png-image_3246813.jpg",
+          mining_type: MiningType.all.sample
       },
       {
           description: "TRON",
           acronym: "TRX",
-          url_image: "https://www.pikpng.com/pngl/m/589-5895518_tron-coin-logo-png-tron-logo-clipart.png"
+          url_image: "https://www.pikpng.com/pngl/m/589-5895518_tron-coin-logo-png-tron-logo-clipart.png",
+          mining_type: MiningType.all.sample
       },
       {
           description: "Solana",
           acronym: "SOL",
-          url_image: "https://solana.com/branding/new/exchange/exchange-sq-white.png"
+          url_image: "https://solana.com/branding/new/exchange/exchange-sq-white.png",
+          mining_type: MiningType.all.sample
       },
       {
           description: "Axie Infinity",
           acronym: "AXS",
-          url_image: "https://s2.coinmarketcap.com/static/img/coins/200x200/6783.png"
+          url_image: "https://s2.coinmarketcap.com/static/img/coins/200x200/6783.png",
+          mining_type: MiningType.all.sample
       }
   ]
     conis.each do |coin|
